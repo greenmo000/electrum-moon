@@ -42,24 +42,10 @@ from interface import Connection, Interface
 from blockchain import Blockchain
 from version import ELECTRUM_VERSION, PROTOCOL_VERSION
 
-DEFAULT_PORTS = {'t':'50001', 's':'50002', 'h':'8081', 'g':'8082'}
+DEFAULT_PORTS = {'t':'50101', 's':'50002', 'h':'8081', 'g':'8082'}
 
 DEFAULT_SERVERS = {
-    'erbium1.sytes.net':{'t':'50001', 's':'50002'},
-    'ecdsa.net':{'t':'50001', 's':'110'},
-    'electrum0.electricnewyear.net':{'t':'50001', 's':'50002'},
-    'VPS.hsmiths.com':{'t':'50001', 's':'50002'},
-    'ELECTRUM.jdubya.info':{'t':'50001', 's':'50002'},
-    'electrum.no-ip.org':{'t':'50001', 's':'50002', 'g':'443'},
-    'us.electrum.be':DEFAULT_PORTS,
-    'bitcoins.sk':{'t':'50001', 's':'50002'},
-    'electrum.petrkr.net':{'t':'50001', 's':'50002'},
-    'electrum.dragonzone.net':DEFAULT_PORTS,
-    'Electrum.hsmiths.com':{'t':'8080', 's':'995'},
-    'electrum3.hachre.de':{'t':'50001', 's':'50002'},
-    'elec.luggs.co':{'t':'80', 's':'443'},
-    'btc.smsys.me':{'t':'110', 's':'995'},
-    'electrum.online':{'t':'50001', 's':'50002'},
+    'aux.bazco.in':{'t':'50101', 's':'50002'}
 }
 
 NODES_RETRY_INTERVAL = 60
@@ -97,7 +83,7 @@ def parse_servers(result):
 
     return servers
 
-def filter_protocol(hostmap = DEFAULT_SERVERS, protocol = 's'):
+def filter_protocol(hostmap = DEFAULT_SERVERS, protocol = 't'):
     '''Filters the hostmap for those implementing protocol.
     The result is a list in serialized form.'''
     eligible = []
@@ -107,7 +93,7 @@ def filter_protocol(hostmap = DEFAULT_SERVERS, protocol = 's'):
             eligible.append(serialize_server(host, port, protocol))
     return eligible
 
-def pick_random_server(hostmap = DEFAULT_SERVERS, protocol = 's', exclude_set = set()):
+def pick_random_server(hostmap = DEFAULT_SERVERS, protocol = 't', exclude_set = set()):
     eligible = list(set(filter_protocol(hostmap, protocol)) - exclude_set)
     return random.choice(eligible) if eligible else None
 

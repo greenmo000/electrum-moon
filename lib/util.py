@@ -35,7 +35,7 @@ import urllib
 import threading
 from i18n import _
 
-base_units = {'BTC':8, 'mBTC':5, 'uBTC':2}
+base_units = {'MOON':8, 'mMOON':5, 'uMOON':2}
 
 def normalize_version(v):
     return [int(x) for x in re.sub(r'(\.0+)*$','', v).split(".")]
