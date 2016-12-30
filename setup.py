@@ -33,7 +33,7 @@ if platform.system() in ['Linux', 'FreeBSD', 'DragonFly']:
     ]
 
 setup(
-    name="Electrum",
+    name="Electrum-MOON",
     version=version.ELECTRUM_VERSION,
     install_requires=[
         'slowaes>=0.1a1',
@@ -76,12 +76,12 @@ setup(
             'locale/*/LC_MESSAGES/electrum.mo',
         ]
     },
-    scripts=['electrum'],
+    scripts=['electrum-moon'],
     data_files=data_files,
-    description="Lightweight Bitcoin Wallet",
-    author="Thomas Voegtlin",
-    author_email="thomasv@electrum.org",
+    description="Lightweight Mooncoin Wallet",
+    author="barrystyle",
+    author_email="admin@bazco.in",
     license="MIT Licence",
     url="https://electrum.org",
-    long_description="""Lightweight Bitcoin Wallet"""
+    long_description="""Lightweight Mooncoin Wallet"""
 )
